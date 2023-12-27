@@ -13,6 +13,9 @@ spec:
     repoURL: "https://github.com/Nebojsa92/arus-gitops.git"
     targetRevision: HEAD
     path: projects/flowpay/apps/certificate-signer
+    helm:
+      valueFiles:
+        - values.yaml
   destination:
     server: "https://kubernetes.default.svc"
     namespace: certificate-signer
