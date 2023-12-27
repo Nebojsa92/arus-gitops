@@ -14,7 +14,8 @@ spec:
     targetRevision: HEAD
     path: projects/flowpay/apps/certificate-signer
   destination:
-    namespace: certificate-signer
+    - server: "https://kubernetes.default.svc"
+      namespace: certificate-signer
   syncPolicy:
     automated:
       selfHeal: true
