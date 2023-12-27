@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: flowpay
+  namespace: argocd
+spec:
+  description: "Project for Flowpay applications"
+  sourceRepos:
+    - "https://github.com/Nebojsa92/gitops.git"
+  destinations:
+    - server: "https://kubernetes.default.svc"
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
