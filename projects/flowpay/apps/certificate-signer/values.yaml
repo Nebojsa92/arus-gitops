@@ -1,0 +1,5 @@
+image:
+  repository: registry.digitalocean.com/flowpay/certificate-signer
+ingress:
+  hosts:
+    - host: certificate-signer.nebojsa-test.store

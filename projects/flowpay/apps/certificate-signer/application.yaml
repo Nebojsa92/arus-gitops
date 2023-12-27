@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: certificate-signer
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+    # Alternatively, you can use background cascading deletion
+    # - resources-finalizer.argocd.argoproj.io/background
+spec:
+  project: flowpay
+  source:
+    repoURL: "https://github.com/Nebojsa92/gitops.git"
+    targetRevision: HEAD
+    path: projects/flowpay/apps/certificate-signer
+  destination:
+    namespace: certificate-signer
+  syncPolicy:
+    automated:
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
