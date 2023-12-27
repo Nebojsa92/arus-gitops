@@ -8,7 +8,7 @@ metadata:
 spec:
   description: "Project for Flowpay applications"
   sourceRepos:
-     - "https://github.com/Nebojsa92/gitops.git"
+     - "https://github.com/Nebojsa92/arus-gitops.git"
   destinations:
     - server: "https://kubernetes.default.svc"
       namespace: '*'

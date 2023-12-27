@@ -10,7 +10,7 @@ metadata:
 spec:
   project: flowpay
   source:
-    repoURL: "https://github.com/Nebojsa92/gitops.git"
+    repoURL: "https://github.com/Nebojsa92/arus-gitops.git"
     targetRevision: HEAD
     path: projects/flowpay/apps/certificate-signer
   destination:
