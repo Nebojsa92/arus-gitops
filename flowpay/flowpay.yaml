@@ -3,19 +3,14 @@ kind: AppProject
 metadata:
   name: flowpay
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   description: "Project for Flowpay applications"
   sourceRepos:
-    - "https://github.com/Nebojsa92/gitops.git"
+     - "https://github.com/Nebojsa92/gitops/flowpay"
   destinations:
     - server: "https://kubernetes.default.svc"
   clusterResourceWhitelist:
-    - group: "*"
-      kind: "*"
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-  namespaceResourceWhitelist:
-    - group: "*"
-      kind: "*"
+    - group: ''
+      kind: Namespace
