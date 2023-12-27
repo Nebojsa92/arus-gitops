@@ -11,6 +11,7 @@ spec:
      - "https://github.com/Nebojsa92/gitops.git"
   destinations:
     - server: "https://kubernetes.default.svc"
+       namespace: '*'
   clusterResourceWhitelist:
     - group: ''
       kind: Namespace
