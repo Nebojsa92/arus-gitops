@@ -6,9 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "https://charts.external-secrets.io"
-    targetRevision: 0.9.11
-    chart: external-secrets
+    repoURL: "https://github.com/Nebojsa92/arus-gitops.git"
+    path:  infra/external-secrets/chart/
   destination:
     server: "https://kubernetes.default.svc"
     namespace: external-secrets
