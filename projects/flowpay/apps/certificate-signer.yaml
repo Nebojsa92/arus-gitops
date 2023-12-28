@@ -10,6 +10,7 @@ spec:
   source:
     repoURL: "https://github.com/Nebojsa92/certificate-signer.git"
     targetRevision: HEAD
+    path: chart/
     helm:
       valueFiles:
         - values.yaml
