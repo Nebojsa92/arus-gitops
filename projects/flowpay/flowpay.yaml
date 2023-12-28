@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: "https://github.com/Nebojsa92/arus-gitops.git"
     targetRevision: HEAD
-    path: projects/flowpay/
+    path: projects/flowpay/apps
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd
