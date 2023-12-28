@@ -1,17 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
-kind: AppProject
+kind: Application
 metadata:
   name: flowpay
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  description: "Project for Flowpay applications"
-  sourceRepos:
-     - "https://github.com/Nebojsa92/arus-gitops.git"
-  destinations:
-    - server: "https://kubernetes.default.svc"
-      namespace: '*'
-  clusterResourceWhitelist:
-    - group: ''
-      kind: Namespace
+  source:
+    repoURL: "https://github.com/Nebojsa92/arus-gitops.git"
+    targetRevision: HEAD
+    path: projects/flowpay/
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argocd
+  syncPolicy:
+    automated:
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
