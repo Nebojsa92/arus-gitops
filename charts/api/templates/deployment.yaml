@@ -49,11 +49,13 @@ spec:
               path: /
               port: http
           envFrom:
-          {{- if and .Values.env (gt (len .Values.env) 0) }}
+          
+          {{- if gt (len (default list .Values.env)) 0 }}
+
             - configMapRef:
                 name: {{ include "api.fullname" . }}-env
           {{- end }}
-          {{- if and .Values.secretEnv (gt (len .Values.secretEnv) 0) }}
+          {{- if gt (len (default list .Values.secretEnv)) 0 }}
             - secretRef:
                 name: {{ include "api.fullname" . }}-env
           {{- end }}
