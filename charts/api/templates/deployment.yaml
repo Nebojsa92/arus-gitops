@@ -80,7 +80,7 @@ spec:
             secretName: {{ include "api.fullname" $ }}-secret-files
             items:
               - key: {{ .name }}
-                path: {{ .mountPath }}
+                path: {{ .name }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
