@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: "https://github.com/Nebojsa92/certificate-signer.git"
-    targetRevision: 85d1c62256f1f829f3b10896f195c8ce92ad5007
+    targetRevision: 9c074035a2088fd5b4b3258700f379ce22b54073
     path: chart/
     helm:
       valueFiles:
