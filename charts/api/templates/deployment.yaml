@@ -48,16 +48,38 @@ spec:
             httpGet:
               path: /
               port: http
+          envFrom:
+          {{- if and .Values.env (gt (len .Values.env) 0) }}
+            - configMapRef:
+                name: {{ include "api.fullname" . }}-env
+          {{- end }}
+          {{- if and .Values.secretEnv (gt (len .Values.secretEnv) 0) }}
+            - secretRef:
+                name: {{ include "api.fullname" . }}-env
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
           volumeMounts:
+          {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
-      {{- with .Values.volumes }}
+          {{- range .Values.secretFiles }}
+            - name: {{ .name }}-secret-volume
+              mountPath: {{ .mountPath }}
+              subPath: {{ .name }}
+          {{- end }}
       volumes:
+      {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
+        {{- range .Values.secretFiles }}
+        - name: {{ .name }}-secret-volume
+          secret:
+            secretName: {{ include "api.fullname" $ }}-secret-files
+            items:
+              - key: {{ .name }}
+                path: {{ .mountPath }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

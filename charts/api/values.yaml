@@ -96,3 +96,24 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+
+
+# env:
+#   - name: key
+#     value: value
+#   - name: key2
+#     value: value2
+
+clusterSecretStoreName: gcp-backend
+
+# secretEnv:
+#   - name: external-secret-key1
+#     remoteRefKey: path/to/external-secret1
+#   - name: external-secret-key2
+#     remoteRefKey: path/to/external-secret2
+
+# secretFiles:
+#   - name: ca-cert
+#     remoteRefKey: ca_cert_pem
+#     mountPath: /ca-cert.pem
