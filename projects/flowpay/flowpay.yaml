@@ -6,6 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
+  project: default
   source:
     repoURL: "https://github.com/Nebojsa92/arus-gitops.git"
     targetRevision: HEAD
