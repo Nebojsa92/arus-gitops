@@ -1,0 +1,17 @@
+api:
+  image:
+    repository: registry.digitalocean.com/flowpay/flowpay-be-client
+
+  ingress:
+    hosts:
+      - host: flowpay-be-client.nebojsa-test.store
+        paths:
+          - path: /
+            pathType: Prefix
+
+  env:
+    - name: CLIENT_SWAGGER_SERVER_BASE
+      value: https://flowpay-be-zzfms.ondigitalocean.app/client
+  secretEnv:
+    - name: CLIENT_SENTRY_DNS
+      secretRefKey: flowpay-be-client-sentry-dsn

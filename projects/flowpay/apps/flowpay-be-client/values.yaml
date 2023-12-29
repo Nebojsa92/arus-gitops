@@ -1,0 +1,33 @@
+api:
+  imagePullSecrets:
+    - name: flowpay
+
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 5
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
+
+  env:
+    - name: POSTGRES_HOST
+      value: flowpay-do-user-8874719-0.c.db.ondigitalocean.com
+    - name: POSTGRES_PORT
+      value: 25060
+    - name: POSTGRES_USER
+      value: doadmin
+    - name: POSTGRES_DATABASE
+      value: defaultdb
+    - name: POSTGRES_USE_SSL
+      value: true
+    - name: SUM_SUB_BASE_URL
+      value: https://api.sumsub.com
+  secretEnv:
+    - name: POSTGRES_PASSWORD
+      secretRefKey: flowpay-be-postgres-password
+    - name: SUM_SUB_TOKEN
+      secretRefKey: sumsub-token
+    - name: SUM_SUB_SECRET
+      secretRefKey: sumsub-secret
+    - name: SUM_SUB_WEBHOOK_SECRET
+      secretRefKey: sumsub-webhook-secret

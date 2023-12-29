@@ -1,0 +1,17 @@
+api:
+  image:
+    repository: registry.digitalocean.com/flowpay/flowpay-be-admin
+
+  ingress:
+    hosts:
+      - host: flowpay-be-admin.nebojsa-test.store
+        paths:
+          - path: /
+            pathType: Prefix
+
+  env:
+    - name: ADMIN_SWAGGER_SERVER_BASE
+      value: https://flowpay-be-zzfms.ondigitalocean.app/admin
+  secretEnv:
+    - name: ADMIN_SENTRY_DNS
+      secretRefKey: flowpay-be-admin-sentry-dsn
