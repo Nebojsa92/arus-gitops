@@ -24,10 +24,10 @@ api:
       value: https://api.sumsub.com
   secretEnv:
     - name: POSTGRES_PASSWORD
-      secretRefKey: flowpay-be-postgres-password
+      remoteRefKey: flowpay-be-postgres-password
     - name: SUM_SUB_TOKEN
-      secretRefKey: sumsub-token
+      remoteRefKey: sumsub-token
     - name: SUM_SUB_SECRET
-      secretRefKey: sumsub-secret
+      remoteRefKey: sumsub-secret
     - name: SUM_SUB_WEBHOOK_SECRET
-      secretRefKey: sumsub-webhook-secret
+      remoteRefKey: sumsub-webhook-secret
