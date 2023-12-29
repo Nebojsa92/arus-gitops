@@ -6,11 +6,13 @@ replicaCount: 1
 
 image:
   repository: nginx
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
-imagePullSecrets: []
+imagePullSecrets:
+  - name: flowpay
+
 nameOverride: ""
 fullnameOverride: ""
 
@@ -117,3 +119,5 @@ clusterSecretStoreName: gcp-backend
 #   - name: ca-cert
 #     remoteRefKey: ca_cert_pem
 #     mountPath: /ca-cert.pem
+
+readyEndpoint: /
