@@ -11,7 +11,7 @@ spec:
     # repoURL: "https://github.com/arus-consulting/flowpay-be.git"
     # targetRevision: main
     # path: chart/
-    repoUrl: "https://github.com/Nebojsa92/arus-gitops.git"
+    repoURL: "https://github.com/Nebojsa92/arus-gitops.git"
     path: projects/flowpay/apps/flowpay-be-admin/
     helm:
       valueFiles:

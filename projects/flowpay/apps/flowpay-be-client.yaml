@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoUrl: "https://github.com/Nebojsa92/arus-gitops.git"
+    repoURL: "https://github.com/Nebojsa92/arus-gitops.git"
     path: projects/flowpay/apps/flowpay-be-client/
     helm:
       valueFiles:
