@@ -1,6 +1,18 @@
 api:
+  image:
+    repository: registry.digitalocean.com/flowpay/flowpay-be-admin
   imagePullSecrets:
     - name: flowpay
+
+  service:
+    port: 3001
+
+  ingress:
+    hosts:
+      - host: flowpay-be-admin.nebojsa-test.store
+        paths:
+          - path: /
+            pathType: Prefix
 
   autoscaling:
     enabled: true
@@ -22,6 +34,8 @@ api:
       value: true
     - name: SUM_SUB_BASE_URL
       value: https://api.sumsub.com
+    - name: ADMIN_SWAGGER_SERVER_BASE
+      value: https://flowpay-be-zzfms.ondigitalocean.app/admin
   secretEnv:
     - name: POSTGRES_PASSWORD
       remoteRefKey: flowpay-be-postgres-password
@@ -31,6 +45,8 @@ api:
       remoteRefKey: sumsub-secret
     - name: SUM_SUB_WEBHOOK_SECRET
       remoteRefKey: sumsub-webhook-secret
+    - name: ADMIN_SENTRY_DNS
+      remoteRefKey: flowpay-be-admin-sentry-dsn
 
   readiness:
     enabled: false

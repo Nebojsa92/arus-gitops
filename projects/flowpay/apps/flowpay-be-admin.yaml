@@ -13,10 +13,6 @@ spec:
     # path: chart/
     repoURL: "https://github.com/Nebojsa92/arus-gitops.git"
     path: projects/flowpay/apps/flowpay-be-admin/
-    helm:
-      valueFiles:
-        - values.yaml
-        - values-admin.yaml
   destination:
     server: "https://kubernetes.default.svc"
     namespace: flowpay-be-admin
