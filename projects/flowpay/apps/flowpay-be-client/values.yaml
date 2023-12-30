@@ -21,7 +21,6 @@ api:
         paths:
           - path: /
             pathType: Prefix
-    annotations:
 
 
   autoscaling:
