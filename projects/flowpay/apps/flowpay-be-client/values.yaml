@@ -8,11 +8,17 @@ api:
     port: 3002
 
   ingress:
+    tls:
+      - hosts:
+          - flowpay-be-client.nebojsa-test.store
+        secretName: flowpay-be-client-tls
     hosts:
       - host: flowpay-be-client.nebojsa-test.store
         paths:
           - path: /
             pathType: Prefix
+    annotations:
+
 
   autoscaling:
     enabled: true
