@@ -8,6 +8,10 @@ api:
     port: 3002
 
   ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/auth-tls-secret: flowpay-be-client/ca-cert
+      nginx.ingress.kubernetes.io/auth-tls-verify-client: "on"
+      nginx.ingress.kubernetes.io/auth-tls-verify-depth: "1"
     tls:
       - hosts:
           - flowpay-be-client.nebojsa-test.store
