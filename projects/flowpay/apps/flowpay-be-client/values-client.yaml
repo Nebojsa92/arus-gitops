@@ -2,6 +2,9 @@ api:
   image:
     repository: registry.digitalocean.com/flowpay/flowpay-be-client
 
+  service:
+    port: 3002
+
   ingress:
     hosts:
       - host: flowpay-be-client.nebojsa-test.store
