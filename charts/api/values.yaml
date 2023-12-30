@@ -120,4 +120,10 @@ clusterSecretStoreName: gcp-backend
 #     remoteRefKey: ca_cert_pem
 #     mountPath: /ca-cert.pem
 
-readyEndpoint: /
+readiness:
+  enabled: true
+  endpoint: /
+
+liveness:
+  enabled: true
+  endpoint: /

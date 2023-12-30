@@ -31,3 +31,8 @@ api:
       remoteRefKey: sumsub-secret
     - name: SUM_SUB_WEBHOOK_SECRET
       remoteRefKey: sumsub-webhook-secret
+
+  readiness:
+    enabled: false
+  liveness:
+    enabled: false

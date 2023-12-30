@@ -40,14 +40,18 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          {{- if .Values.liveness.enabled }}
           livenessProbe:
             httpGet:
-              path: {{ .Values.readyEndpoint }}
+              path: {{ .Values.liveness.endpoint }}
               port: http
+          {{- end }}
+          {{- if .Values.readiness.enabled }}
           readinessProbe:
             httpGet:
-              path: {{ .Values.readyEndpoint }}
+              path: {{ .Values.readiness.endpoint }}
               port: http
+          {{- end }}
           envFrom:
           
           {{- if gt (len (default list .Values.env)) 0 }}
