@@ -1,0 +1,4 @@
+harbor:
+  ingress:
+    hosts:
+      core: harbor.nebojsa-test.store
