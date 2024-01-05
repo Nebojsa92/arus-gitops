@@ -30,6 +30,11 @@ api:
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
 
+  resources:
+    requests:
+      memory: 128Mi
+      cpu: 10m
+
   env:
     - name: POSTGRES_HOST
       value: flowpay-do-user-8874719-0.c.db.ondigitalocean.com
