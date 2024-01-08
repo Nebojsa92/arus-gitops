@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: image-registry
+  name: docker-registry
   namespace: argocd
 spec:
   project: default
@@ -10,7 +10,7 @@ spec:
     repoURL: https://helm.twun.io
     targetRevision: 2.2.2
     helm:
-      releaseName: image-registry
+      releaseName: docker-registry
       parameters:
         - name: "ingress.enabled"
           value: "true"
@@ -21,7 +21,7 @@ spec:
 
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: image-registry
+    namespace: docker-registry
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
