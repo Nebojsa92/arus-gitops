@@ -8,6 +8,7 @@ api:
     port: 3002
 
   ingress:
+    className: "nginx-public"
     annotations:
       nginx.ingress.kubernetes.io/auth-tls-secret: "flowpay-be-client/ca-cert"
       nginx.ingress.kubernetes.io/auth-tls-verify-client: "on"
