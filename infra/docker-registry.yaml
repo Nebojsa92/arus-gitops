@@ -1,30 +1,30 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: image-registry
-  namespace: argocd
-spec:
-  project: default
-  source:
-    chart: docker-registry
-    repoURL: https://helm.twun.io
-    targetRevision: 2.2.2
-    helm:
-      releaseName: image-registry
-      parameters:
-        - name: "ingress.enabled"
-          value: "true"
-        - name: "ingress.className"
-          value: nginx-private
-        - name: "ingres.hosts[0]"
-          value: registry.nebojsa-test.store
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: image-registry
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     chart: docker-registry
+#     repoURL: https://helm.twun.io
+#     targetRevision: 2.2.2
+#     helm:
+#       releaseName: image-registry
+#       parameters:
+#         - name: "ingress.enabled"
+#           value: "true"
+#         - name: "ingress.className"
+#           value: nginx-private
+#         - name: "ingres.hosts[0]"
+#           value: registry.nebojsa-test.store
 
-  destination:
-    server: "https://kubernetes.default.svc"
-    namespace: image-registry
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
-      selfHeal: true
-      prune: true
+#   destination:
+#     server: "https://kubernetes.default.svc"
+#     namespace: image-registry
+#   syncPolicy:
+#     syncOptions:
+#       - CreateNamespace=true
+#     automated:
+#       selfHeal: true
+#       prune: true
