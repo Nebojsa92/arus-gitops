@@ -24,34 +24,34 @@ spec:
       selfHeal: true
       prune: true
 ---
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: ingress-nginx-private
-  namespace: argocd
-spec:
-  project: default
-  source:
-    repoURL: "https://github.com/Nebojsa92/arus-gitops.git"
-    path:  infra/ingress-nginx/
-    helm:
-      parameters:
-        - name: "controller.ingressClassResource.name"
-          value: nginx-private
-        - name: "controller.ingressClass"
-          value: nginx-private
-        - name: "controller.service.type"
-          value: NodePort
-        - name: "controller.service.nodePorts.http"
-          value: "30080"
-        - name: "controller.service.nodePorts.https"
-          value: "30443"
-  destination:
-    server: "https://kubernetes.default.svc"
-    namespace: ingress-nginx-private
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-    automated:
-      selfHeal: true
-      prune: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: ingress-nginx-private
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: "https://github.com/Nebojsa92/arus-gitops.git"
+#     path:  infra/ingress-nginx/
+#     helm:
+#       parameters:
+#         - name: "controller.ingressClassResource.name"
+#           value: nginx-private
+#         - name: "controller.ingressClass"
+#           value: nginx-private
+#         - name: "controller.service.type"
+#           value: NodePort
+#         - name: "controller.service.nodePorts.http"
+#           value: "30080"
+#         - name: "controller.service.nodePorts.https"
+#           value: "30443"
+#   destination:
+#     server: "https://kubernetes.default.svc"
+#     namespace: ingress-nginx-private
+#   syncPolicy:
+#     syncOptions:
+#       - CreateNamespace=true
+#     automated:
+#       selfHeal: true
+#       prune: true
