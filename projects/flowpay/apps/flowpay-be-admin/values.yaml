@@ -10,7 +10,7 @@ api:
   ingress:
     className: "nginx-private"
     hosts:
-      - host: flowpay-be-admin.admin
+      - host: flowpay-be-admin.admin.loc
         paths:
           - path: /
             pathType: Prefix
