@@ -10,7 +10,7 @@ api:
   ingress:
     className: "nginx-private"
     hosts:
-      - host: flowpay-be-admin.nebojsa-test.store
+      - host: flowpay-be-admin.admin
         paths:
           - path: /
             pathType: Prefix
